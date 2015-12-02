@@ -1,14 +1,23 @@
 close all;
 clear all;
 
+run matconvnet/matlab/vl_setupnn;
+
 addpath('utils')
 load('./model/weights_srnet_x2_52.mat');
+load('./model/conv_h1.mat');
+load('./model/conv_h2.mat');
+load('./model/conv_g2.mat');
+model.conv_h1 = conv_h1;
+model.conv_h2 = conv_h2;
+model.conv_g2 = conv_g2;
 
 im_l = imread('./data/slena.bmp');
 im_gt = imread('./data/mlena.bmp');
 
 up_scale = 2;
 shave = 1;
+use_gpu = 0;
 
 im_gt = modcrop(im_gt,up_scale);
 im_gt = double(im_gt);
@@ -24,11 +33,9 @@ else
     im_l_ycbcr(:,:,3) = im_l;
 end
 im_l_y = im_l_ycbcr(:,:,1) * 255;
-
 tic;
-im_h_y = SCN(im_l_y,model,up_scale);
+im_h_y = SCN_Matconvnet(im_l_y, model,up_scale,use_gpu);
 toc;
-
 im_h_ycbcr = imresize(im_l_ycbcr,up_scale,'bicubic');
 im_b = ycbcr2rgb(im_h_ycbcr) * 255.0;
 im_h_ycbcr(:,:,1) = im_h_y / 255.0;
