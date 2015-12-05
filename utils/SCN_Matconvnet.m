@@ -29,8 +29,14 @@ for iter = 1:iter_all
 % you can check it by comparing convfea_mat_2 and convfea_mat;
     convfea_mat_1 = vl_nnconv(im_y,conv_h1,[]);
     convfea_mat_2 = vl_nnconv(convfea_mat_1,conv_h2,[]);
+<<<<<<< HEAD
     convfea_mat   = convfea_mat_2;
 %     convfea_mat = vl_nnconv(im_y,conv,[]);
+=======
+%     convfea_mat   = convfea_mat_2;
+    convfea_mat = vl_nnconv(im_y,conv,[]);
+    
+>>>>>>> origin/master
     im_mean_mat = vl_nnconv(im_y,mean2,[]);
     diffms_mat = vl_nnconv(im_y,diffm,[]);
     convfea_mat = vl_nnnormalize(convfea_mat,[size(convfea_mat,1),0,1,0.5]);
@@ -49,6 +55,10 @@ for iter = 1:iter_all
     im_h_y = im_mean_mat + hPatch_mat; 
     im_l_y = im_h_y;
 end
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 if size(im_h_y,1) > lh * scale
    im_h_y = imresize(im_h_y,[lh * scale,lw * scale],'bicubic');
 end
