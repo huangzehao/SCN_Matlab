@@ -36,11 +36,9 @@ im_h  = ycbcr2rgb(im_h_ycbcr) * 255.0;
 
 figure;imshow(uint8(im_b));title('Bicubic Interpolation');
 figure;imshow(uint8(im_h));title('SCN Reconstruction');
-figure;imshow(uint8(im_gt));title('Grouth');
-
+figure;imshow(uint8(im_gt));title('Origin');
 
 sr_psnr = compute_psnr(im_h,im_gt);
 bi_psnr = compute_psnr(im_b,im_gt);
 fprintf('sr_psnr: %f dB\n',sr_psnr);
 fprintf('bi_psnr: %f dB\n',bi_psnr);
-

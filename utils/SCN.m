@@ -6,6 +6,7 @@ border_size = 6;
 scale_y = 1.1;
 
 iter_all = ceil(log(scale)/log(model_scale));
+[lh,lw] = size(im_l_y);
 for iter = 1:iter_all
     fprintf('iter:%d\n',iter);
     im_y = imresize(im_l_y,model_scale,'bicubic');
@@ -27,7 +28,6 @@ for iter = 1:iter_all
     mNorm = sqrt(sum(diffms.^2,2));
     hPatch = hPatch./repmat(hNorm,1,size(hPatch,2)).*repmat(mNorm,1,size(diffms,2))*scale_y;
     hPatch = hPatch.*repmat(model.addp',size(hPatch,1),1);
-  
     hPatch = reshape(hPatch,h,w,size(hPatch,2));
     im_h_y = im_mean;
     [h,w] = size(im_h_y);
@@ -41,7 +41,7 @@ for iter = 1:iter_all
     im_l_y = im_h_y;
 end
 
-% if size(im_h_y,1) > size(im_l_y,1) * scale
-%     im_h_y = imresize(im_h_y,[size(im_l_y,1)*scale,size(im_l_y,2)*scale],'bicubic');
-% end
+if size(im_h_y,1) > lh * scale
+   im_h_y = imresize(im_h_y,[lh * scale,lw * scale],'bicubic');
+end
 end
