@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-% close all;
-% clear all;
-=======
+
 close all;
 clear all;
->>>>>>> origin/master
 
 run matconvnet/matlab/vl_setupnn;
 
@@ -37,18 +33,13 @@ else
     im_l_ycbcr(:,:,2) = im_l;
     im_l_ycbcr(:,:,3) = im_l;
 end
-<<<<<<< HEAD
+
 im_l_y = im_l_ycbcr(:,:,1);
 tic;
 im_h_y = SCN_Matconvnet(im_l_y, model,up_scale,use_gpu);
 toc;
 im_h_y = im_h_y * 255;
-=======
-im_l_y = im_l_ycbcr(:,:,1) * 255;
-tic;
-im_h_y = SCN_Matconvnet(im_l_y, model,up_scale,use_gpu);
-toc;
->>>>>>> origin/master
+
 im_h_ycbcr = imresize(im_l_ycbcr,up_scale,'bicubic');
 im_b = ycbcr2rgb(im_h_ycbcr) * 255.0;
 im_h_ycbcr(:,:,1) = im_h_y / 255.0;
