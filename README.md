@@ -9,6 +9,9 @@ Demo_SR_Conv: another simple demo implemented all by convolution. you need insta
 # Dependencies
 Matlab
 
+# Training Code
+I implemented the training code by caffe, please check my caffe repository, than you!
+
 Please cite [1] if you use this code in your work, thank you! 
 
 - [1] Zhaowen Wang, Ding Liu, Wei Han, Jianchao Yang and Thomas S. Huang, Deep Networks for Image Super-Resolution with Sparse Prior. International Conference on Computer Vision (ICCV), 2015 (accepted)
