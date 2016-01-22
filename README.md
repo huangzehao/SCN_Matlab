@@ -4,12 +4,12 @@ This is a reimplementation of SCN-SR ([original](http://www.ifp.illinois.edu/~di
 # Instruction
 Demo_SR : a simple demo. 
 
-Demo_SR_Conv: another simple demo implemented all by convolution operations. you need install matconvnet before.
+Demo_SR_Conv: another simple demo implemented all by convolution operations. Convolution operations can help you to understand the network structure in [1].
 
 # Test Code Dependencies
 Matlab
 
-[MatConvNet](http://www.vlfeat.org/matconvnet/) (optional)
+[MatConvNet](http://www.vlfeat.org/matconvnet/) for Demo_SR_Conv.
 # Training Code
 I implemented the training code by caffe, and I will share it on github after finishing my test !
 
