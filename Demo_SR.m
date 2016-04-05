@@ -2,6 +2,8 @@ close all;
 clear all;
 
 addpath('utils')
+% use "weights_srnet_x2_52.mat" and "weights_srnet_x2_310.mat" to form a casade network 
+% can achieve better performance in upsampling factor 3 and 4.
 load('./model/weights_srnet_x2_52.mat');
 
 im_l = imread('./data/slena.bmp');
