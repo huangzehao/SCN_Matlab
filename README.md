@@ -10,8 +10,6 @@ Demo_SR_Conv: another simple demo implemented all by convolution operations. Con
 Matlab
 
 [MatConvNet](http://www.vlfeat.org/matconvnet/) for Demo_SR_Conv.
-# Training Code
-I implemented the training code by caffe, and I will share it on github after finishing my test !
 
 Please cite [1] if you use this code in your work, thank you! 
 
